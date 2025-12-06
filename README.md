@@ -16,3 +16,17 @@ It uses NumPy, Pandas, Matplotlib, and Seaborn, along with manual Gradient Desce
 - Real-time credit approval recommendation function
 - Clean, minimal, reproducible code
 - Great for learning, interviews, and portfolio projects
+
+## 📊 Dataset Features
+
+The model uses the following MSME attributes:
+- revenue
+- profit_margin
+- employees
+- age
+- existing_loans
+- credit_score
+
+### Target label:
+- 1 → Approve
+- 0 → Reject
