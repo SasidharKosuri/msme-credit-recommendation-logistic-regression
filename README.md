@@ -44,61 +44,61 @@ The model uses the following MSME attributes:
 - 
   ### 1️⃣ Clone the Repository
   
-'''
+```
 git clone https://github.com/SasidharKosuri/msme-credit-recommendation-logistic-regression.git
 cd msme-credit-recommendation-logistic-regression
-'''
+```
 
 ### 2️⃣ Create a Virtual Environment (Optional but Recommended)
 
 On Windows:
 
-'''
+```
 python -m venv venv
 venv\Scripts\activate
-'''
+```
 
 On macOS/Linux:
-'''
+```
 python3 -m venv venv
 source venv/bin/activate
-'''
+```
 
 ### 3️⃣ Install Dependencies
 
-'''
+```
 pip install numpy pandas matplotlib seaborn
-'''
+```
 
 No scikit-learn required — the logistic regression model is implemented entirely from scratch.
 
 ### 4️⃣ Run the Script or Notebook
 
 If you're using Jupyter/Colab Notebook (.ipynb):
-'''
+```
 jupyter notebook
-'''
+```
 Then open your notebook file and run all cells.
 
 If you're using a Python script (.py):
-'''
+```
 python main.py
-'''
+```
 Or whatever your script name is.
 
 ### 5️⃣ Test the Recommendation System
 
 At the bottom of the script/notebook, you can test with a new MSME input:
-'''
+```
 sample = [75, 18, 15, 6, 0, 710]
 decision, probability = recommend_credit(sample)
 
 print("Decision:", decision)
 print("Approval Probability:", probability)
-'''
+```
 
 You’ll see output such as:
-'''
+```
 Decision: Approve
 Approval Probability: 0.87
-'''
+```
