@@ -5,7 +5,7 @@ It uses NumPy, Pandas, Matplotlib, and Seaborn, along with manual Gradient Desce
 
 ---
 
-### 🚀 Features
+## 🚀 Features
 
 - Logistic Regression implemented manually
 - Feature normalization (z-score standardization)
