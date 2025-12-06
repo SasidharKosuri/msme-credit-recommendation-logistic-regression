@@ -95,3 +95,52 @@ X = np.hstack((np.ones((X.shape[0], 1)), X))
 ```
 basically, what we are doing here is adding a horizontally stacking a column of 1's and X.We do this because the bias term allows the model to make predictions even when all features = 0.
 
+🌟 What the Bias/Intercept Actually Does
+
+The bias term allows the model to make predictions even when all features = 0.
+
+Without a bias:
+<img width="572" height="235" alt="image" src="https://github.com/user-attachments/assets/6784e290-dbfb-46c1-b181-0ba1310c6377" />
+That means the model ALWAYS predicts 50% probability when features are close to zero.
+This is WRONG for almost all datasets.
+The bias fixes this by shifting the decision boundary up or down.
+
+In other words,the bias allows the model to shift the sigmoid curve
+With bias:
+<img width="282" height="54" alt="image" src="https://github.com/user-attachments/assets/26ba1342-4107-4ee5-afde-fdb922a7cdc9" />
+Here, 
+w₀ is the intercept.
+
+It shifts the sigmoid left or right so predictions fit the data.
+
+Without w₀ → model is forced to pass through the origin.
+With w₀ → model can fit real-world data.
+
+Here, z is the z-score; i.e a raw score before applying the sigmoid function.
+The sigmoid then converts z into a probability (0–1).
+
+Suppose a row (after normalization + bias) looks like:
+```
+[1, -0.39, -0.24, -0.51, -0.41, 0.26, -0.19]
+```
+Suppose weights look like:
+```
+[w0, w1, w2, w3, w4, w5, w6]
+```
+
+Then:
+```
+z = 1*w0
+   + (-0.39)*w1
+   + (-0.24)*w2
+   + (-0.51)*w3
+   + (-0.41)*w4
+   + (0.26)*w5
+   + (-0.19)*w6
+```
+and This gives one number, be something like:
+```
+z = 1.47
+```
+which is the z-score for that row and corresponding weights
+
