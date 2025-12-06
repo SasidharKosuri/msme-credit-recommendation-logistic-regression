@@ -44,7 +44,8 @@ X = df.drop("label", axis=1).values
 Take all columns except label → convert to NumPy
 → X becomes your feature matrix (10×6)
 
-```y = df["label"].values.reshape(-1, 1)
+```
+y = df["label"].values.reshape(-1, 1)
 ```
 
 Take ONLY the label column → convert to NumPy → reshape
