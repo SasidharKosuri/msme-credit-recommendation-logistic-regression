@@ -30,3 +30,11 @@ The model uses the following MSME attributes:
 ### Target label:
 - 1 → Approve
 - 0 → Reject
+
+## 🧮 Technologies Used
+
+- Python
+- NumPy – numerical computations
+- Pandas – data handling
+- Matplotlib – plotting
+- Seaborn – heatmaps & EDA visualizations
