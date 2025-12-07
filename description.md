@@ -120,7 +120,7 @@ With w₀ → model can fit real-world data.
 Here, z is the z-score; i.e a raw score before applying the sigmoid function.
 The sigmoid then converts z into a probability (0–1).
 
-Suppose a row (after normalization + bias) looks like:
+Suppose a row of features (after normalization + bias) looks like:
 ```
 [1, -0.39, -0.24, -0.51, -0.41, 0.26, -0.19]
 ```
@@ -128,7 +128,20 @@ Suppose weights look like:
 ```
 [w0, w1, w2, w3, w4, w5, w6]
 ```
+Weights tell how important each feature is.
+| Feature        | Meaning                 | Weight               |
+| -------------- | ----------------------- | -------------------- |
+| credit_score   | very important          | w₆ = large positive  |
+| existing_loans | reduces approval chance | w₅ = negative        |
+| revenue        | somewhat important      | w₁ = small positive  |
+| profit_margin  | moderately important    | w₂ = medium positive |
 
+Interpretation:
+- Higher positive weight → increases probability of “Approve”
+- Negative weight → decreases probability
+- Zero weight → feature has no effect
+
+So,Weights = what the model learns.
 Then:
 ```
 z = 1*w0
@@ -145,3 +158,11 @@ z = 1.47
 ```
 which is the z-score for that row and corresponding weights
 
+Logistic Regression
+Logistic regression is a machine-learning method used for YES/NO predictions, like:
+Approve loan or Reject?
+Spam email or Not?
+Fraudulent transaction or Normal?
+
+In this scenario,"Will this MSME get credit? → Yes (1) or No (0)"
+<img width="467" height="289" alt="image" src="https://github.com/user-attachments/assets/b97d6403-bf43-41d5-8396-c18900e9a9c5" />
