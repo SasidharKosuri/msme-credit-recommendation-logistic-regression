@@ -258,6 +258,7 @@ now within the train_logistic_regression function we are using 2 important funct
    <img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
 - It takes ANY number — negative, zero, or positive — and converts it into a probability between 0 and 1.
   Examples:
+  
 | z    | sigmoid(z) |
 | ---- | ---------- |
 | -100 | ~0.0000    |
@@ -265,5 +266,6 @@ now within the train_logistic_regression function we are using 2 important funct
 | 0    | 0.5        |
 | 2    | 0.88       |
 | 10   | 0.9999     |
+
 
   So sigmoid is a probability generator.
