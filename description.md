@@ -166,3 +166,44 @@ Fraudulent transaction or Normal?
 
 In this scenario,"Will this MSME get credit? → Yes (1) or No (0)"
 <img width="467" height="289" alt="image" src="https://github.com/user-attachments/assets/b97d6403-bf43-41d5-8396-c18900e9a9c5" />
+
+The next step is training the logistic regression model to arrive at accurate weights, we do this with the help of the train_logistic_regression function. The inputs for this function are X,y,lr and epochs
+lr and epochs are two of the MOST important hyperparameters in gradient descent.
+1. lr (learning rate)
+
+This controls how big the weight updates are during training.
+You update weights using:
+```
+weights -= lr * gradient
+```
+So:
+If lr is large, weights change a lot each step
+If lr is small, weights change slowly
+
+In our code, lr = 0.1
+0.1 is a good balance. Sinc it is:
+- Stable
+- Fast enough
+- Works well for normalized data
+
+If lr was 10 → model explodes
+If lr was 0.0001 → training will be extremely slow
+
+2. epochs (training cycles)
+
+An epoch means:
+One full pass over the entire dataset.
+
+In our code:
+```
+epochs = 2000
+```
+
+Meaning:
+- We compute predictions
+- Compute gradients
+- Update weights
+- Repeat this 2000 times
+- Also, for every 200th time we compute loss and analyze if it is gradually reducing(if the loss is reducing with increasing epochs, it means that the model is working well)
+  
+Each epoch improves the model a little.
