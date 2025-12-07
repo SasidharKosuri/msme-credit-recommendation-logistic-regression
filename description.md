@@ -253,9 +253,16 @@ When derivative ≈ 0 → no learning happens.
 This is why we want weights to start SMALL.
 Otherwise z becomes too large since z = XW→ sigmoid output becomes too close to 0 or 1 → derivative becomes tiny → learning stops.
 
-now within the train_logistic_regression function we are using 2 important functions:
+now within the train_logistic_regression function we are using 3 important functions:
 1. sigmoid function :
    <img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
+
+When z is:
+Large and positive → e^-z → becomes almost zero → result → 1
+
+Large and negative →  e^-z → becomes huge → result → 0
+
+Zero → result = 0.5
 - It takes ANY number — negative, zero, or positive — and converts it into a probability between 0 and 1.
   Examples:
   
@@ -268,4 +275,238 @@ now within the train_logistic_regression function we are using 2 important funct
 | 10   | 0.9999     |
 
 
-  So sigmoid is a probability generator.
+So sigmoid is a probability generator.We need sigmoid in logistic regression because logistic regression predicts things like:
+
+Approve (1)
+Reject (0)
+
+We need probabilities like:
+
+0.93 → 93% chance approve
+0.18 → 18% chance approve
+Sigmoid gives us exactly that.
+
+2. predictions:
+It just returns the sigmoid value of the dot product of X and weights.
+np.dot(X, weights)
+This performs matrix multiplication:
+```
+z=X⋅W
+```
+Where:
+X is your (10, 7) matrix
+W is (7, 1) weight vector
+
+The result is:
+z shape = (10, 1) i.e 1 z-score per MSME.
+We then apply sigmoid function to each of these 10 values and it results in 10 predictions, 1 prediction for each MSME.
+
+3.compute_loss:
+- takes X,y & weights array as inputs
+- Loss tells us how wrong the model is.
+
+High loss → model makes bad predictions
+Low loss → model makes good predictions
+Training tries to reduce this loss over time.
+
+```
+m = len(y)
+```
+In our code y has 10 rows (10,1) → m = 10.
+This is used to compute the average loss across all MSMEs.
+
+It then gets the prediction array for each MSME using
+```
+predictions = predict(X, weights)
+```
+then it uses the Binary Cross-Entropy formula for loss,which is given by:
+```
+loss = - (1/m) * np.sum(y*np.log(predictions) + (1-y)*np.log(1 - predictions))
+```
+i.e
+<img width="408" height="67" alt="image" src="https://github.com/user-attachments/assets/a0f652ab-2c0e-47ef-92b1-92a0482f6841" />
+
+The real meaning of the loss formula:
+1. Case 1 : When y = 1
+<img width="454" height="173" alt="image" src="https://github.com/user-attachments/assets/ed6dc3fe-ac8a-4f4c-8724-a24ee17dd0eb" />
+
+2. Case 2 : When y = 0
+<img width="488" height="173" alt="image" src="https://github.com/user-attachments/assets/b2b7fb8a-22dd-4d88-81ca-c35c90f4f137" />
+
+ Why negative sign?
+
+Logs are negative numbers (log ≤ 0)
+So:
+Small negative (good prediction)
+After multiplying by -1 → becomes small positive loss
+Big negative (bad prediction)
+After multiplying by -1 → becomes large positive loss
+Loss should always be positive.
+
+Why take the mean? (1/m)
+
+We average the loss across all 10 samples.
+This makes the scale consistent regardless of dataset size.
+
+
+"Why do we multiply y with log(pred) and (1-y) with log(1-p)?"
+If loan should be approved (y=1)
+
+We only care about:
+log(pred)
+
+→ wants pred to be high
+→ punishes model if pred is low
+
+If loan should be rejected (y=0)
+
+We only care about:
+log(1 - pred)
+
+→ wants pred to be low so that 1-pred will be high
+→ punishes model if pred is high
+
+The formula is built so that:
+
+Wrong predictions → big loss
+Correct predictions → small loss
+
+this is based on the understanding that if pred tends to 1 log(pred) moves to 0, i.e loss will be nearly 0.
+and if pred tends to 0, log(pred) tends to large negative values, implies log(1-pred) tends to 0 
+
+<img width="346" height="124" alt="image" src="https://github.com/user-attachments/assets/8ade2b92-4748-4edf-b6dc-bbb7adbc18ec" />
+
+in the range of epochs,we calculate predictions followed by gradient.
+```
+gradient = np.dot(X.T, (predictions - y)) / len(y)
+```
+✔ Step A — Compute error
+```
+(predictions - y)
+```
+For each sample:
+If prediction too high → positive error
+If prediction too low → negative error
+
+Example:
+If true = 1 and pred = 0.7 → error = -0.3
+If true = 0 and pred = 0.8 → error = +0.8
+
+This error tells us how wrong each prediction is.
+✔ Step B — Multiply error with X.T
+
+X.T shape is (7, 10)
+
+Why transpose?
+So each weight gets updated using all samples.
+
+This dot product does:
+<img width="238" height="85" alt="image" src="https://github.com/user-attachments/assets/e39e1d4c-86e2-40ce-8a61-ed6f65275f13" />
+Meaning:
+
+“For each weight j, compute how much it contributed to the error.”
+This produces a 7×1 vector — one gradient for each weight.
+
+✔ Step C — Divide by number of samples
+```
+/ len(y)
+```
+This gives the average gradient (better stability).
+
+✔ Step D - weights -= lr * gradient
+
+This is the actual learning step.
+
+ We move weights in the opposite direction of the gradient:
+```
+weights = weights - (learning_rate × gradient)
+```
+
+Because:
+
+If gradient is positive → prediction too high → reduce weight
+If gradient is negative → prediction too low → increase weight
+
+This is exactly how gradient descent works.
+
+Also, we calculate loss for every 200 epochs and analyze if its decreasing.
+return weights in the end.
+
+Now the final step is predicting the probability and Approval/Rejection outcomw for a new MSME when the training is done.
+We do this with the help of the recommend_credit function.
+
+lets say this is the sample data for which we need to predict
+```
+sample = [75, 18, 15, 6, 0, 710]
+decision, probability = recommend_credit(sample)
+```
+
+the sample is the input here and the recommend_credit function takes it as a parameter (new_data)
+We then convert the new_data python list to a numpy array
+
+For the next step we perform normalization with the help of our previously calculated dataframe X
+```
+new_data = (new_data - df.drop("label", axis=1).mean().values) / \
+                df.drop("label", axis=1).std().values
+```
+This line:
+
+Takes the same columns used for training (revenue, profit_margin, etc.)
+Computes their mean and std from the original df
+Applies the z-score normalization:
+
+Why?
+
+Because during training we did:
+
+```
+X = (X - X.mean(axis=0)) / X.std(axis=0)
+```
+
+<img width="217" height="53" alt="image" src="https://github.com/user-attachments/assets/1f99dc7b-cbe6-4251-9003-fc10971bd5ad" />
+
+So the model learned on normalized features.
+At prediction time, you MUST feed values in the same scale, otherwise the weights don’t make sense.
+
+Then we add the bias term (intercept),
+We insert 1 at index 0, so X has 7 values now the first one is the bias and rest are feature values.
+
+Next, we compute the approval probability
+```
+prob = sigmoid(np.dot(new_data, weights))[0]
+
+```
+
+Decoding it:
+```
+np.dot(new_data, weights)
+```
+new_data → shape (7,)
+weights → shape (7,1)
+Result → shape (1,) (a single z value wrapped in an array)
+
+This is:
+
+sigmoid(z) turns that raw score into a probability between 0 and 1.
+[0] just extracts the scalar from the array.
+So if prob is something like 0.87 → 87% chance this MSME should be approved.
+
+Now for the last step, we turn probability into decision
+```
+return "Approve" if prob >= 0.5 else "Reject", prob
+```
+
+If prob >= 0.5 → "Approve"
+Else → "Reject"
+So the function returns either of two things:
+
+("Approve", probabilty of approval)
+# or
+("Reject", the probabilty of approval)
+```
+eg :
+("Approve", 0.8734)
+# or
+("Reject", 0.2412)
+```
+We then print these as decision and probability respectively.
