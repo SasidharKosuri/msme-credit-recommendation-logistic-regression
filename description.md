@@ -207,3 +207,48 @@ Meaning:
 - Also, for every 200th time we compute loss and analyze if it is gradually reducing(if the loss is reducing with increasing epochs, it means that the model is working well)
   
 Each epoch improves the model a little.
+
+Now, coming to the train_logistic_regression function:
+
+```
+np.random.seed(42)
+weights = np.random.randn(X.shape[1], 1) * 0.01
+```
+- np.random.seed(42)
+
+Locks NumPy's random generator so that it ALWAYS produces the same sequence of random numbers.
+
+- np.random.randn(X.shape[1], 1)
+
+Generates a 7×1 array of random values (because X has 7 features).
+
+- * 0.01
+
+Makes the weights small. We need to understand why we make the weights small: 
+
+
+Derivative of the sigmoid (important!)
+
+Sigmoid:
+
+<img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
+
+
+Derivative of sigmoid:
+
+<img width="227" height="47" alt="image" src="https://github.com/user-attachments/assets/d1676181-5ccb-4011-a47d-76a8199ef121" />
+
+
+This measures how much the sigmoid output changes if z changes a little.
+
+Key insight:
+
+👉 When sigmoid output is close to 0 or 1,
+its derivative becomes almost zero.
+
+This is called sigmoid saturation.
+
+When derivative ≈ 0 → no learning happens.
+
+This is why we want weights to start SMALL.
+Otherwise z becomes too large since z = XW→ sigmoid output becomes too close to 0 or 1 → derivative becomes tiny → learning stops.
