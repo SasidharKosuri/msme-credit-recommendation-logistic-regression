@@ -252,3 +252,18 @@ When derivative ≈ 0 → no learning happens.
 
 This is why we want weights to start SMALL.
 Otherwise z becomes too large since z = XW→ sigmoid output becomes too close to 0 or 1 → derivative becomes tiny → learning stops.
+
+now within the train_logistic_regression function we are using 2 important functions:
+1. sigmoid function :
+   <img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
+- It takes ANY number — negative, zero, or positive — and converts it into a probability between 0 and 1.
+  Examples:
+  | z    | sigmoid(z) |
+| ---- | ---------- |
+| -100 | ~0.0000    |
+| -5   | 0.0067     |
+| 0    | 0.5        |
+| 2    | 0.88       |
+| 10   | 0.9999     |
+
+  So sigmoid is a probability generator.
