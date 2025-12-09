@@ -186,15 +186,15 @@ In this scenario,**"Will this MSME get credit? → Yes (1) or No (0)"**<br>
 - The inputs for this function are X,y,lr and epochs.<br>
 - lr and epochs are two of the MOST important hyperparameters in gradient descent.
 
-1. **lr (learning rate)**:
+ **1. lr (learning rate)**:
 This controls how big the weight updates are during training.
 You update weights using:
-```
+  ```
 weights -= lr * gradient
-```
+  ```
 So:
-If lr is large, weights change a lot each step
-If lr is small, weights change slowly
+- If lr is large, weights change a lot each step
+- If lr is small, weights change slowly
 
 In our code, lr = 0.1
 0.1 is a good balance. Since it is:
@@ -204,8 +204,8 @@ In our code, lr = 0.1
 
 If lr was 10 → model explodes
 If lr was 0.0001 → training will be extremely slow
-
-2. **epochs (training cycles)**
+<hr>
+**2. epochs (training cycles)**
 An epoch means:
 One full pass over the entire dataset.
 
