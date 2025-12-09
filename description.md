@@ -452,28 +452,26 @@ new_data = (new_data - df.drop("label", axis=1).mean().values) / \
                 df.drop("label", axis=1).std().values
 ```
 This line:
-
-Takes the same columns used for training (revenue, profit_margin, etc.)
-Computes their mean and std from the original df
-Applies the z-score normalization:
+- Takes the same columns used for training (revenue, profit_margin, etc.)
+- Computes their mean and std from the original df
+- Applies the z-score normalization:
 
 Why?
-
 Because during training we did:
 
 ```
 X = (X - X.mean(axis=0)) / X.std(axis=0)
 ```
+<br>
+<img width="217" height="53" alt="image" src="https://github.com/user-attachments/assets/1f99dc7b-cbe6-4251-9003-fc10971bd5ad" /><br>
 
-<img width="217" height="53" alt="image" src="https://github.com/user-attachments/assets/1f99dc7b-cbe6-4251-9003-fc10971bd5ad" />
+So the model learned on normalized features.<br>
+At prediction time, you MUST feed values in the same scale, otherwise the weights don’t make sense.<br>
 
-So the model learned on normalized features.
-At prediction time, you MUST feed values in the same scale, otherwise the weights don’t make sense.
+Then we add the bias term (intercept),<br>
+We insert 1 at index 0, so X has 7 values now the first one is the bias and rest are feature values.<br>
 
-Then we add the bias term (intercept),
-We insert 1 at index 0, so X has 7 values now the first one is the bias and rest are feature values.
-
-Next, we compute the approval probability
+Next, we compute the **approval probability**
 ```
 prob = sigmoid(np.dot(new_data, weights))[0]
 
@@ -483,15 +481,15 @@ Decoding it:
 ```
 np.dot(new_data, weights)
 ```
-new_data → shape (7,)
-weights → shape (7,1)
-Result → shape (1,) (a single z value wrapped in an array)
+new_data → shape (7,) <br>
+weights → shape (7,1) <br>
+Result → shape (1,) (a single z value wrapped in an array)<br>
 
 This is:
 
-sigmoid(z) turns that raw score into a probability between 0 and 1.
-[0] just extracts the scalar from the array.
-So if prob is something like 0.87 → 87% chance this MSME should be approved.
+> sigmoid(z) turns that raw score into a probability between 0 and 1.<br>
+> [0] just extracts the scalar from the array.<br>
+> So if prob is something like 0.87 → 87% chance this MSME should be approved.<br>
 
 Now for the last step, we turn probability into decision
 ```
