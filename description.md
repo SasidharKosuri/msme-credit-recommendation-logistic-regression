@@ -91,22 +91,21 @@ Without normalization, the model behaves like:
 “credit_score is super important because it's HUGE”
 “existing_loans is not important at all because it's tiny”
 ```
-This is not true — it's just a scaling problem.
-
-and also because Normalization makes training MUCH faster & Logistic regression assumes features are on similar scales
-
-the next step is adding a bias-column/intercept:
+This is not true as it's just a scaling problem.<br>
+and also because Normalization makes training MUCH faster & Logistic regression assumes features are on similar scales<br>
+the next step is adding a bias-column/intercept:<br>
 ```
 X = np.hstack((np.ones((X.shape[0], 1)), X))
 ```
+<br>
 basically, what we are doing here is adding a horizontally stacking a column of 1's and X.We do this because the bias term allows the model to make predictions even when all features = 0.
 
-🌟 What the Bias/Intercept Actually Does
+### What the Bias/Intercept Actually Does
 
 The bias term allows the model to make predictions even when all features = 0.
 
-Without a bias:
-<img width="572" height="235" alt="image" src="https://github.com/user-attachments/assets/6784e290-dbfb-46c1-b181-0ba1310c6377" />
+Without a bias:<br>
+<img width="572" height="235" alt="image" src="https://github.com/user-attachments/assets/6784e290-dbfb-46c1-b181-0ba1310c6377" /><br>
 That means the model ALWAYS predicts 50% probability when features are close to zero.
 This is WRONG for almost all datasets.
 The bias fixes this by shifting the decision boundary up or down.
