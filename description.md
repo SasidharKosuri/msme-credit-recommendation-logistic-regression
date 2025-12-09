@@ -39,6 +39,8 @@ rejected MSMEs using color-coded labels.
 Shows the correlation between all features, helping identify important predictors 
 and relationships in the dataset.
 
+## 🔢 Splitting DataFrame into NumPy Arrays
+
 Then we split the dataframe into numpy arrays X and y
 ```
 X = df.drop("label", axis=1).values
@@ -54,7 +56,7 @@ Take ONLY the label column → convert to NumPy → reshape
 → y becomes your target vector (10×1)
 
 We convert the dataframe to numpy arrays because Logistic regression math requires arrays, not DataFrames.
-our implementation uses:
+Our implementation uses:
 - matrix multiplication
 - transpose
 - dot products
