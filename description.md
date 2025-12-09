@@ -1,28 +1,29 @@
+# 📌 MSME Credit Recommendation System
 The credit recommendation system is created with the help of numpy,pandas and seaborn and matplotlib libraries of python.
 
 Firstly, we take a dataset into consideration and create a dataframe out of it using pandas.
 This dataset that we have taken into account consists of 7 features required inorder to predict the credit recommendation outcome.
 
 These 7 features are : 
-1. revenue
+1. **revenue**
 How much income the business generates. Higher revenue usually means a stronger business.
 
-2. profit_margin
+2. **profit_margin**
 Percentage of profit the business keeps after expenses. Higher margin = more efficient business.
 
-3. employees
+3. **employees**
 Number of workers in the company. Larger companies often have more stability.
 
-4. age
+4. **age**
 How long the business has been running (in years). Older businesses tend to be more reliable.
 
-5. existing_loans
+5. **existing_loans**
 Number of active loans the business already has. More loans = higher financial risk.
 
-6. credit_score
+6. **credit_score**
 Business’s credit rating (similar to personal credit score). Higher score = more trustworthy borrower.
 
-7. label
+7. **label**
 Target:
 1 = Approve (loan should be approved)
 0 = Reject (loan should not be approved)
