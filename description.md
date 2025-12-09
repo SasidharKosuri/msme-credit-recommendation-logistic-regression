@@ -296,6 +296,7 @@ We need probabilities like:
 **2. predictions:**<br>
 It just returns the sigmoid value of the dot product of X and weights.<br>
 > np.dot(X, weights)
+
 This performs matrix multiplication:
 ```
 z=X⋅W
