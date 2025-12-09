@@ -120,26 +120,25 @@ In other words,the bias allows the model to shift the sigmoid curve<br>
 <img width="282" height="54" alt="image" src="https://github.com/user-attachments/assets/26ba1342-4107-4ee5-afde-fdb922a7cdc9" /><br>
 
  > Here, w₀ is the intercept.<br>
- > It shifts the sigmoid left or right so predictions fit the data.<br>
-
+ > It shifts the sigmoid left or right so predictions fit the data.
  > Without w₀ → model is forced to pass through the origin.
- > With w₀ → model can fit real-world data.
+ > With w₀ → model can fit real-world data.<br>
 
-Here, z is the z-score; i.e a raw score before applying the sigmoid function.
-The sigmoid then converts z into a probability (0–1).
+> Here, z is the z-score; i.e a raw score before applying the sigmoid function.
+> The sigmoid then converts z into a probability (0–1).
 
-Suppose a row of features (after normalization + bias) looks like:
+Suppose a row of features (after normalization + bias) looks like:<br>
 
 ```
 [1, -0.39, -0.24, -0.51, -0.41, 0.26, -0.19]
 ```
-
+<br>
 Suppose weights look like:
-
+<br>
 ```
 [w0, w1, w2, w3, w4, w5, w6]
 ```
-
+<br>
 Weights tell how important each feature is.
 
 | Feature        | Meaning                 | Weight               |
