@@ -1,4 +1,4 @@
-# 📌 MSME Credit Recommendation System
+# 📌 MSME Credit Recommendation System<hr>
 The credit recommendation system is created with the help of numpy,pandas and seaborn and matplotlib libraries of python.
 
 Firstly, we take a dataset into consideration and create a dataframe out of it using pandas.
