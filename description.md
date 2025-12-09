@@ -223,8 +223,8 @@ Meaning:
   
 Each epoch improves the model a little.
 
-Now, coming to the train_logistic_regression function:
-
+## train_logistic_regression function
+### 🧪 Weight Initialization
 ```
 np.random.seed(42)
 weights = np.random.randn(X.shape[1], 1) * 0.01
