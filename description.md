@@ -204,7 +204,7 @@ In our code, lr = 0.1
 
 If lr was 10 → model explodes
 If lr was 0.0001 → training will be extremely slow
-<hr>
+
 **2. epochs (training cycles)**
 An epoch means:
 One full pass over the entire dataset.
