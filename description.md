@@ -463,7 +463,9 @@ Because during training we did:
 X = (X - X.mean(axis=0)) / X.std(axis=0)
 ```
 <br>
-<img width="217" height="53" alt="image" src="https://github.com/user-attachments/assets/1f99dc7b-cbe6-4251-9003-fc10971bd5ad" /><br>
+<img width="217" height="53" alt="image" src="https://github.com/user-attachments/assets/1f99dc7b-cbe6-4251-9003-fc10971bd5ad" />
+<br>
+
 
 So the model learned on normalized features.<br>
 At prediction time, you MUST feed values in the same scale, otherwise the weights don’t make sense.<br>
@@ -491,22 +493,23 @@ This is:
 > [0] just extracts the scalar from the array.<br>
 > So if prob is something like 0.87 → 87% chance this MSME should be approved.<br>
 
-Now for the last step, we turn probability into decision
+
+Now for the last step, we **turn probability into decision**<br>
 ```
 return "Approve" if prob >= 0.5 else "Reject", prob
 ```
+<br>
+If prob >= 0.5 → "Approve"<br>
+Else → "Reject"<br>
+So the function returns either of two things:<br>
 
-If prob >= 0.5 → "Approve"
-Else → "Reject"
-So the function returns either of two things:
-
-("Approve", probabilty of approval)
-# or
-("Reject", the probabilty of approval)
+> ("Approve", probabilty of approval)<br>
+> or<br>
+> ("Reject", the probabilty of approval)<br>
 ```
 eg :
 ("Approve", 0.8734)
-# or
+or
 ("Reject", 0.2412)
 ```
 We then print these as decision and probability respectively.
