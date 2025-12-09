@@ -110,9 +110,9 @@ The bias term allows the model to make predictions even when all features = 0.
 
 <img width="572" height="235" alt="image" src="https://github.com/user-attachments/assets/6784e290-dbfb-46c1-b181-0ba1310c6377" /><br>
 
-That means the model ALWAYS predicts 50% probability when features are close to zero.<br>
-This is WRONG for almost all datasets.<br>
-The bias fixes this by shifting the decision boundary up or down.<br>
+- That means the model ALWAYS predicts 50% probability when features are close to zero.<br>
+- This is WRONG for almost all datasets.<br>
+- The bias fixes this by shifting the decision boundary up or down.<br>
 
 In other words,the bias allows the model to shift the sigmoid curve<br>
 
