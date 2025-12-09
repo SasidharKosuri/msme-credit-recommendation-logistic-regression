@@ -177,12 +177,15 @@ Logistic regression is a machine-learning method used for YES/NO predictions, li
 - Spam email or Not?
 - Fraudulent transaction or Normal?
 
-In this scenario,"Will this MSME get credit? → Yes (1) or No (0)"<rbr>
-<img width="467" height="289" alt="image" src="https://github.com/user-attachments/assets/b97d6403-bf43-41d5-8396-c18900e9a9c5" /><br>
-The next step is training the logistic regression model to arrive at accurate weights, we do this with the help of the train_logistic_regression function. The inputs for this function are X,y,lr and epochs
-lr and epochs are two of the MOST important hyperparameters in gradient descent.
-1. lr (learning rate)
+In this scenario,"Will this MSME get credit? → Yes (1) or No (0)"<br>
 
+<img width="467" height="289" alt="image" src="https://github.com/user-attachments/assets/b97d6403-bf43-41d5-8396-c18900e9a9c5" /><br>
+
+The next step is training the logistic regression model to arrive at accurate weights, we do this with the help of the train_logistic_regression function.<br>
+The inputs for this function are X,y,lr and epochs.<br>
+lr and epochs are two of the MOST important hyperparameters in gradient descent.
+
+1. **lr (learning rate)**:
 This controls how big the weight updates are during training.
 You update weights using:
 ```
@@ -193,7 +196,7 @@ If lr is large, weights change a lot each step
 If lr is small, weights change slowly
 
 In our code, lr = 0.1
-0.1 is a good balance. Sinc it is:
+0.1 is a good balance. Since it is:
 - Stable
 - Fast enough
 - Works well for normalized data
@@ -201,8 +204,7 @@ In our code, lr = 0.1
 If lr was 10 → model explodes
 If lr was 0.0001 → training will be extremely slow
 
-2. epochs (training cycles)
-
+2. **epochs (training cycles)**
 An epoch means:
 One full pass over the entire dataset.
 
