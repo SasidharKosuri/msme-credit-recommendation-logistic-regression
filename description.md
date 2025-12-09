@@ -102,7 +102,7 @@ X = np.hstack((np.ones((X.shape[0], 1)), X))
 <br>
 basically, what we are doing here is adding a horizontally stacking a column of 1's and X.We do this because the bias term allows the model to make predictions even when all features = 0.
 
-### What the Bias/Intercept Actually Does
+### 🎯 What the Bias/Intercept Actually Does
 ---
 The bias term allows the model to make predictions even when all features = 0.
 
@@ -124,8 +124,9 @@ In other words,the bias allows the model to shift the sigmoid curve<br>
  > Without w₀ → model is forced to pass through the origin.
  > With w₀ → model can fit real-world data.<br>
 
-> Here, z is the z-score; i.e a raw score before applying the sigmoid function.
-> The sigmoid then converts z into a probability (0–1).
+### Understanding z
+ - Here, z is the z-score; i.e a raw score before applying the sigmoid function.
+ - The sigmoid then converts z into a probability (0–1).
 
 Suppose a row of features (after normalization + bias) looks like:<br>
 
