@@ -500,7 +500,8 @@ return "Approve" if prob >= 0.5 else "Reject", prob
 <br>
 If prob >= 0.5 → "Approve"<br>
 Else → "Reject"<br>
-So the function returns either of two things:
+So the function returns either of two things: 
+
 
 > ("Approve", probabilty of approval)<br>
 > or<br>
