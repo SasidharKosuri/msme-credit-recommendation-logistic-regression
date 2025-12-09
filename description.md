@@ -312,7 +312,6 @@ The result is:
 **3.compute_loss:**
 - takes X,y & weights array as inputs
 - Loss tells us how wrong the model is.
-
 - High loss → model makes bad predictions
 - Low loss → model makes good predictions
 - Training tries to reduce this loss over time.
@@ -320,19 +319,16 @@ The result is:
 ```
 m = len(y)
 ```
-In our code y has 10 rows (10,1) → m = 10.<br>
-This is used to compute the average loss across all MSMEs.<br>
-It then gets the prediction array for each MSME using<br>
+> In our code y has 10 rows (10,1) → m = 10.<br>
+> This is used to compute the average loss across all MSMEs.<br>
+> It then gets the prediction array for each MSME using
 ```
 predictions = predict(X, weights)
 ```
-<br>
 then it uses the Binary Cross-Entropy formula for loss,which is given by:
-
 ```
 loss = - (1/m) * np.sum(y*np.log(predictions) + (1-y)*np.log(1 - predictions))
 ```
-<br>
 i.e
 <br>
 <img width="408" height="67" alt="image" src="https://github.com/user-attachments/assets/a0f652ab-2c0e-47ef-92b1-92a0482f6841" /><br>
