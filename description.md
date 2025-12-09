@@ -73,9 +73,9 @@ X = (X - X.mean(axis=0)) / X.std(axis=0)
 We do normalization because different features have different feature scales
 
 Example:
-credit_score ~ 700
-existing_loans ~ 0 or 1
-employees ~ 40 or 120
+credit_score ~ 700 
+existing_loans ~ 0 or 1 
+employees ~ 40 or 120 
 age ~ 1–20
 
 
