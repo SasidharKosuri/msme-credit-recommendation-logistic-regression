@@ -237,10 +237,9 @@ Locks NumPy's random generator so that it ALWAYS produces the same sequence of r
 
 Generates a 7×1 array of random values (because X has 7 features).
 
-- * 0.01
+- *0.01
 
-Makes the weights small. We need to understand why we make the weights small: 
-
+Makes the weights small. We need to understand why we make the weights small:
 
 Derivative of the sigmoid (important!)
 
@@ -248,27 +247,23 @@ Sigmoid:
 
 <img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
 
-
 Derivative of sigmoid:
 
 <img width="227" height="47" alt="image" src="https://github.com/user-attachments/assets/d1676181-5ccb-4011-a47d-76a8199ef121" />
 
-
 This measures how much the sigmoid output changes if z changes a little.
 
-Key insight:
+**Key insight:**
 
-👉 When sigmoid output is close to 0 or 1,
-its derivative becomes almost zero.
+> When sigmoid output is close to 0 or 1,
+> its derivative becomes almost zero.
 
-This is called sigmoid saturation.
+- This is called sigmoid saturation.
+- When derivative ≈ 0 → no learning happens.
+- This is why we want weights to start SMALL.
+- Otherwise z becomes too large since z = XW→ sigmoid output becomes too close to 0 or 1 → derivative becomes tiny → learning stops.
 
-When derivative ≈ 0 → no learning happens.
-
-This is why we want weights to start SMALL.
-Otherwise z becomes too large since z = XW→ sigmoid output becomes too close to 0 or 1 → derivative becomes tiny → learning stops.
-
-now within the train_logistic_regression function we are using 3 important functions:
+Within the train_logistic_regression function we are using 3 important functions:
 1. sigmoid function :
    <img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
 
