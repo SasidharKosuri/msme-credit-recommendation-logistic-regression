@@ -106,8 +106,8 @@ basically, what we are doing here is adding a horizontally stacking a column of 
 
 The bias term allows the model to make predictions even when all features = 0.
 
-### Without a bias:<hr>
-
+### Without a bias:
+ ---
 <img width="572" height="235" alt="image" src="https://github.com/user-attachments/assets/6784e290-dbfb-46c1-b181-0ba1310c6377" /><br>
 
 - That means the model ALWAYS predicts 50% probability when features are close to zero.<br>
