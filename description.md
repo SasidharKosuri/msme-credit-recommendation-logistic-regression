@@ -336,9 +336,11 @@ i.e
 The real meaning of the loss formula:<br>
 
 **1. Case 1 : When y = 1** <br>
+
 <img width="454" height="173" alt="image" src="https://github.com/user-attachments/assets/ed6dc3fe-ac8a-4f4c-8724-a24ee17dd0eb" /><br>
 
 **2. Case 2 : When y = 0** <br>
+
 <img width="488" height="173" alt="image" src="https://github.com/user-attachments/assets/b2b7fb8a-22dd-4d88-81ca-c35c90f4f137" /><br>
 
 **Why negative sign?**
@@ -378,64 +380,63 @@ and if pred tends to 0, log(pred) tends to large negative values, implies log(1-
 
 <img width="346" height="124" alt="image" src="https://github.com/user-attachments/assets/8ade2b92-4748-4edf-b6dc-bbb7adbc18ec" /><br>
 
+## 🔄 Gradient Descent (Learning)
 in the range of epochs,we calculate predictions followed by gradient.
 ```
 gradient = np.dot(X.T, (predictions - y)) / len(y)
 ```
-✔ Step A — Compute error
+**✔ Step A — Compute error**
 ```
 (predictions - y)
 ```
-For each sample:
-If prediction too high → positive error
-If prediction too low → negative error
+**For each sample:**<br>
+- If prediction too high → positive error
+- If prediction too low → negative error
 
-Example:
-If true = 1 and pred = 0.7 → error = -0.3
-If true = 0 and pred = 0.8 → error = +0.8
+> **Example:**
+> If true = 1 and pred = 0.7 → error = -0.3
+> If true = 0 and pred = 0.8 → error = +0.8
 
-This error tells us how wrong each prediction is.
-✔ Step B — Multiply error with X.T
+This error tells us how wrong each prediction is.<br>
 
-X.T shape is (7, 10)
+**✔ Step B — Multiply error with X.T**
+- X.T shape is (7, 10)
+> Why transpose?
+> So each weight gets updated using all samples.
 
-Why transpose?
-So each weight gets updated using all samples.
+This dot product does:<br>
+<img width="238" height="85" alt="image" src="https://github.com/user-attachments/assets/e39e1d4c-86e2-40ce-8a61-ed6f65275f13" /><br>
 
-This dot product does:
-<img width="238" height="85" alt="image" src="https://github.com/user-attachments/assets/e39e1d4c-86e2-40ce-8a61-ed6f65275f13" />
-Meaning:
+**Meaning:**
+> “For each weight j, compute how much it contributed to the error.”
+> This produces a 7×1 vector — one gradient for each weight.
 
-“For each weight j, compute how much it contributed to the error.”
-This produces a 7×1 vector — one gradient for each weight.
-
-✔ Step C — Divide by number of samples
+**✔ Step C — Divide by number of samples**
 ```
 / len(y)
 ```
 This gives the average gradient (better stability).
 
-✔ Step D - weights -= lr * gradient
 
-This is the actual learning step.
+**✔ Step D - weights -= lr * gradient**
 
- We move weights in the opposite direction of the gradient:
+- This is the actual learning step.
+- We move weights in the opposite direction of the gradient:
 ```
 weights = weights - (learning_rate × gradient)
 ```
 
 Because:
+> If gradient is positive → prediction too high → reduce weight
+> If gradient is negative → prediction too low → increase weight
+<br>
+- This is exactly how gradient descent works.<br>
+- Also, we calculate loss for every 200 epochs and analyze if its decreasing.<br>
+- the function returns weights in the end.<br>
 
-If gradient is positive → prediction too high → reduce weight
-If gradient is negative → prediction too low → increase weight
 
-This is exactly how gradient descent works.
-
-Also, we calculate loss for every 200 epochs and analyze if its decreasing.
-return weights in the end.
-
-Now the final step is predicting the probability and Approval/Rejection outcomw for a new MSME when the training is done.
-We do this with the help of the recommend_credit function.
+- Now the final step is predicting the probability and Approval/Rejection outcomw for a new MSME when the training is done.
+- We do this with the help of the recommend_credit function.
 
 lets say this is the sample data for which we need to predict
 ```
