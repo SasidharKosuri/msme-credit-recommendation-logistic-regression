@@ -134,7 +134,7 @@ Suppose a row of features (after normalization + bias) looks like:<br>
 ```
 <br>
 Suppose weights look like:
-<br>
+
 ```
 [w0, w1, w2, w3, w4, w5, w6]
 ```
