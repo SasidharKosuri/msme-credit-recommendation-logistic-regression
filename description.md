@@ -334,49 +334,43 @@ i.e
 <img width="408" height="67" alt="image" src="https://github.com/user-attachments/assets/a0f652ab-2c0e-47ef-92b1-92a0482f6841" /><br>
 
 The real meaning of the loss formula:
-1. Case 1 : When y = 1
+**1. Case 1 : When y = 1**
 <img width="454" height="173" alt="image" src="https://github.com/user-attachments/assets/ed6dc3fe-ac8a-4f4c-8724-a24ee17dd0eb" />
-
-2. Case 2 : When y = 0
+<br>
+**2. Case 2 : When y = 0**
 <img width="488" height="173" alt="image" src="https://github.com/user-attachments/assets/b2b7fb8a-22dd-4d88-81ca-c35c90f4f137" />
 
- Why negative sign?
+**Why negative sign?**
+Logs are negative numbers (log ≤ 0).So:
+- Small negative (good prediction)
+- After multiplying by -1 → becomes small positive loss
+- Big negative (bad prediction)
+- After multiplying by -1 → becomes large positive loss
+- Loss should always be positive.
 
-Logs are negative numbers (log ≤ 0)
-So:
-Small negative (good prediction)
-After multiplying by -1 → becomes small positive loss
-Big negative (bad prediction)
-After multiplying by -1 → becomes large positive loss
-Loss should always be positive.
-
-Why take the mean? (1/m)
-
+**Why take the mean? (1/m)**
 We average the loss across all 10 samples.
 This makes the scale consistent regardless of dataset size.
 
+**Why do we multiply y with log(pred) and (1-y) with log(1-p)?**
 
-"Why do we multiply y with log(pred) and (1-y) with log(1-p)?"
+```
 If loan should be approved (y=1)
-
-We only care about:
-log(pred)
+We only care about: log(pred)
 
 → wants pred to be high
 → punishes model if pred is low
-
+```
 If loan should be rejected (y=0)
-
-We only care about:
-log(1 - pred)
+```
+We only care about: log(1 - pred)
 
 → wants pred to be low so that 1-pred will be high
 → punishes model if pred is high
-
+```
 The formula is built so that:
-
-Wrong predictions → big loss
-Correct predictions → small loss
+- Wrong predictions → big loss
+- Correct predictions → small loss
 
 this is based on the understanding that if pred tends to 1 log(pred) moves to 0, i.e loss will be nearly 0.
 and if pred tends to 0, log(pred) tends to large negative values, implies log(1-pred) tends to 0 
