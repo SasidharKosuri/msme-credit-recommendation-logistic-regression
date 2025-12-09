@@ -66,6 +66,7 @@ Our implementation uses:
 Pandas cannot do this kind of math reliably.
 NumPy is designed for linear algebra.
 
+## ⚖️ Normalization
 the next step is normalization:
 
 ```
