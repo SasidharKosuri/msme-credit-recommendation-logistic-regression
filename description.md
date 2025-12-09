@@ -334,11 +334,11 @@ i.e
 <img width="408" height="67" alt="image" src="https://github.com/user-attachments/assets/a0f652ab-2c0e-47ef-92b1-92a0482f6841" /><br>
 
 The real meaning of the loss formula:
-**1. Case 1 : When y = 1**
-<img width="454" height="173" alt="image" src="https://github.com/user-attachments/assets/ed6dc3fe-ac8a-4f4c-8724-a24ee17dd0eb" />
-<br>
-**2. Case 2 : When y = 0**
-<img width="488" height="173" alt="image" src="https://github.com/user-attachments/assets/b2b7fb8a-22dd-4d88-81ca-c35c90f4f137" />
+**1. Case 1 : When y = 1** <br>
+<img width="454" height="173" alt="image" src="https://github.com/user-attachments/assets/ed6dc3fe-ac8a-4f4c-8724-a24ee17dd0eb" /><br>
+
+**2. Case 2 : When y = 0** <br>
+<img width="488" height="173" alt="image" src="https://github.com/user-attachments/assets/b2b7fb8a-22dd-4d88-81ca-c35c90f4f137" /><br>
 
 **Why negative sign?**
 Logs are negative numbers (log ≤ 0).So:
@@ -373,9 +373,9 @@ The formula is built so that:
 - Correct predictions → small loss
 
 this is based on the understanding that if pred tends to 1 log(pred) moves to 0, i.e loss will be nearly 0.
-and if pred tends to 0, log(pred) tends to large negative values, implies log(1-pred) tends to 0 
+and if pred tends to 0, log(pred) tends to large negative values, implies log(1-pred) tends to 0 <br>
 
-<img width="346" height="124" alt="image" src="https://github.com/user-attachments/assets/8ade2b92-4748-4edf-b6dc-bbb7adbc18ec" />
+<img width="346" height="124" alt="image" src="https://github.com/user-attachments/assets/8ade2b92-4748-4edf-b6dc-bbb7adbc18ec" /><br>
 
 in the range of epochs,we calculate predictions followed by gradient.
 ```
