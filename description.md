@@ -171,15 +171,14 @@ z = 1.47
 ```
 which is the z-score for that row and corresponding weights
 
-Logistic Regression
+## 📈 Logistic Regression
 Logistic regression is a machine-learning method used for YES/NO predictions, like:
-Approve loan or Reject?
-Spam email or Not?
-Fraudulent transaction or Normal?
+- Approve loan or Reject?
+- Spam email or Not?
+- Fraudulent transaction or Normal?
 
-In this scenario,"Will this MSME get credit? → Yes (1) or No (0)"
-<img width="467" height="289" alt="image" src="https://github.com/user-attachments/assets/b97d6403-bf43-41d5-8396-c18900e9a9c5" />
-
+In this scenario,"Will this MSME get credit? → Yes (1) or No (0)"<rbr>
+<img width="467" height="289" alt="image" src="https://github.com/user-attachments/assets/b97d6403-bf43-41d5-8396-c18900e9a9c5" /><br>
 The next step is training the logistic regression model to arrive at accurate weights, we do this with the help of the train_logistic_regression function. The inputs for this function are X,y,lr and epochs
 lr and epochs are two of the MOST important hyperparameters in gradient descent.
 1. lr (learning rate)
