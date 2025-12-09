@@ -93,6 +93,8 @@ Without normalization, the model behaves like:
 ```
 This is not true as it's just a scaling problem.<br>
 and also because Normalization makes training MUCH faster & Logistic regression assumes features are on similar scales<br>
+
+## ➕ Adding the Bias Column (Intercept)
 the next step is adding a bias-column/intercept:<br>
 ```
 X = np.hstack((np.ones((X.shape[0], 1)), X))
@@ -106,15 +108,14 @@ The bias term allows the model to make predictions even when all features = 0.
 
 Without a bias:<br>
 <img width="572" height="235" alt="image" src="https://github.com/user-attachments/assets/6784e290-dbfb-46c1-b181-0ba1310c6377" /><br>
-That means the model ALWAYS predicts 50% probability when features are close to zero.
-This is WRONG for almost all datasets.
-The bias fixes this by shifting the decision boundary up or down.
+That means the model ALWAYS predicts 50% probability when features are close to zero.<br>
+This is WRONG for almost all datasets.<br>
+The bias fixes this by shifting the decision boundary up or down.<br>
 
-In other words,the bias allows the model to shift the sigmoid curve
-With bias:
-<img width="282" height="54" alt="image" src="https://github.com/user-attachments/assets/26ba1342-4107-4ee5-afde-fdb922a7cdc9" />
-Here, 
-w₀ is the intercept.
+In other words,the bias allows the model to shift the sigmoid curve<br>
+With bias:<br>
+<img width="282" height="54" alt="image" src="https://github.com/user-attachments/assets/26ba1342-4107-4ee5-afde-fdb922a7cdc9" /><br>
+Here, w₀ is the intercept.
 
 It shifts the sigmoid left or right so predictions fit the data.
 
