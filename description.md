@@ -116,8 +116,7 @@ The bias term allows the model to make predictions even when all features = 0.
 
 In other words,the bias allows the model to shift the sigmoid curve<br>
 
-With bias:<br>
-
+### With bias:
 <img width="282" height="54" alt="image" src="https://github.com/user-attachments/assets/26ba1342-4107-4ee5-afde-fdb922a7cdc9" /><br>
 
 Here, w₀ is the intercept.<br>
