@@ -177,13 +177,14 @@ Logistic regression is a machine-learning method used for YES/NO predictions, li
 - Spam email or Not?
 - Fraudulent transaction or Normal?
 
-In this scenario,"Will this MSME get credit? → Yes (1) or No (0)"<br>
+In this scenario,**"Will this MSME get credit? → Yes (1) or No (0)"**<br>
 
 <img width="467" height="289" alt="image" src="https://github.com/user-attachments/assets/b97d6403-bf43-41d5-8396-c18900e9a9c5" /><br>
 
-The next step is training the logistic regression model to arrive at accurate weights, we do this with the help of the train_logistic_regression function.<br>
-The inputs for this function are X,y,lr and epochs.<br>
-lr and epochs are two of the MOST important hyperparameters in gradient descent.
+## 🏋️ Training the Model
+- The next step is training the logistic regression model to arrive at accurate weights, we do this with the help of the train_logistic_regression function.<br>
+- The inputs for this function are X,y,lr and epochs.<br>
+- lr and epochs are two of the MOST important hyperparameters in gradient descent.
 
 1. **lr (learning rate)**:
 This controls how big the weight updates are during training.
