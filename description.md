@@ -429,13 +429,12 @@ weights = weights - (learning_rate × gradient)
 Because:
 > If gradient is positive → prediction too high → reduce weight
 > If gradient is negative → prediction too low → increase weight
-<br>
-- This is exactly how gradient descent works.<br>
-- Also, we calculate loss for every 200 epochs and analyze if its decreasing.<br>
-- the function returns weights in the end.<br>
+- This is exactly how gradient descent works.
+- Also, we calculate loss for every 200 epochs and analyze if its decreasing.
+- the function returns weights in the end.
 
-
-- Now the final step is predicting the probability and Approval/Rejection outcomw for a new MSME when the training is done.
+## 🧾 Making Final Predictions
+- Now the final step is predicting the probability and Approval/Rejection outcome for a new MSME when the training is done.
 - We do this with the help of the recommend_credit function.
 
 lets say this is the sample data for which we need to predict
@@ -444,8 +443,8 @@ sample = [75, 18, 15, 6, 0, 710]
 decision, probability = recommend_credit(sample)
 ```
 
-the sample is the input here and the recommend_credit function takes it as a parameter (new_data)
-We then convert the new_data python list to a numpy array
+- the sample is the input here and the recommend_credit function takes it as a parameter (new_data)
+- We then convert the new_data python list to a numpy array
 
 For the next step we perform normalization with the help of our previously calculated dataframe X
 ```
