@@ -28,13 +28,14 @@ Target:
 1 = Approve (loan should be approved)
 0 = Reject (loan should not be approved)
 
-Then we analyze the dataset using Seaborn (Visual Explanatory Data-Analysis). We are using pair-plot and heatmap to achieve this purpose.
+## 🔍 Dataset Analysis (EDA)
+We analyze the dataset using Seaborn (Visual Explanatory Data-Analysis). We are using pair-plot and heatmap to achieve this purpose.
 
-pair-plot: 
+- pair-plot: 
 Visualizes pairwise feature relationships and how they differ between approved and 
 rejected MSMEs using color-coded labels.
 
-heatmap:
+- heatmap:
 Shows the correlation between all features, helping identify important predictors 
 and relationships in the dataset.
 
