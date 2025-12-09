@@ -333,7 +333,8 @@ i.e
 <br>
 <img width="408" height="67" alt="image" src="https://github.com/user-attachments/assets/a0f652ab-2c0e-47ef-92b1-92a0482f6841" /><br>
 
-The real meaning of the loss formula:
+The real meaning of the loss formula:<br>
+
 **1. Case 1 : When y = 1** <br>
 <img width="454" height="173" alt="image" src="https://github.com/user-attachments/assets/ed6dc3fe-ac8a-4f4c-8724-a24ee17dd0eb" /><br>
 
