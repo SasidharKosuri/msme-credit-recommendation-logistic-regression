@@ -4,7 +4,7 @@ The credit recommendation system is created with the help of numpy,pandas and se
 Firstly, we take a dataset into consideration and create a dataframe out of it using pandas.
 This dataset that we have taken into account consists of 7 features required inorder to predict the credit recommendation outcome.
 
-These 7 ## 📊 features are : 
+## 📊 features : 
 1. **revenue**
 How much income the business generates. Higher revenue usually means a stronger business.
 
