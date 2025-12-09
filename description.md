@@ -243,11 +243,11 @@ Makes the weights small. We need to understand why we make the weights small:
 
 Derivative of the sigmoid (important!)
 
-Sigmoid:
+**Sigmoid:**
 
 <img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
 
-Derivative of sigmoid:
+**Derivative of sigmoid:**
 
 <img width="227" height="47" alt="image" src="https://github.com/user-attachments/assets/d1676181-5ccb-4011-a47d-76a8199ef121" />
 
@@ -263,16 +263,16 @@ This measures how much the sigmoid output changes if z changes a little.
 - This is why we want weights to start SMALL.
 - Otherwise z becomes too large since z = XW→ sigmoid output becomes too close to 0 or 1 → derivative becomes tiny → learning stops.
 
+## 🧮 Three Important Functions in Training
 Within the train_logistic_regression function we are using 3 important functions:
-1. sigmoid function :
-   <img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" />
+
+**1. sigmoid function:**
+   <br><img width="197" height="72" alt="image" src="https://github.com/user-attachments/assets/73505f9a-c05d-4e6d-b60e-07049eaf8869" /><br>
 
 When z is:
-Large and positive → e^-z → becomes almost zero → result → 1
-
-Large and negative →  e^-z → becomes huge → result → 0
-
-Zero → result = 0.5
+- Large and positive → e^-z → becomes almost zero → result → 1
+- Large and negative →  e^-z → becomes huge → result → 0
+- Zero → result = 0.5
 - It takes ANY number — negative, zero, or positive — and converts it into a probability between 0 and 1.
   Examples:
   
@@ -284,57 +284,57 @@ Zero → result = 0.5
 | 2    | 0.88       |
 | 10   | 0.9999     |
 
-
 So sigmoid is a probability generator.We need sigmoid in logistic regression because logistic regression predicts things like:
-
-Approve (1)
-Reject (0)
+- Approve (1)
+- Reject (0)
 
 We need probabilities like:
+- 0.93 → 93% chance approve
+- 0.18 → 18% chance approve
+- Sigmoid gives us exactly that.
 
-0.93 → 93% chance approve
-0.18 → 18% chance approve
-Sigmoid gives us exactly that.
-
-2. predictions:
-It just returns the sigmoid value of the dot product of X and weights.
-np.dot(X, weights)
+**2. predictions:**<br>
+It just returns the sigmoid value of the dot product of X and weights.<br>
+> np.dot(X, weights)
 This performs matrix multiplication:
 ```
 z=X⋅W
 ```
 Where:
-X is your (10, 7) matrix
-W is (7, 1) weight vector
+- X is your (10, 7) matrix
+- W is (7, 1) weight vector
 
 The result is:
-z shape = (10, 1) i.e 1 z-score per MSME.
-We then apply sigmoid function to each of these 10 values and it results in 10 predictions, 1 prediction for each MSME.
+- z shape = (10, 1) i.e 1 z-score per MSME.
+- We then apply sigmoid function to each of these 10 values and it results in 10 predictions, 1 prediction for each MSME.
 
-3.compute_loss:
+**3.compute_loss:**
 - takes X,y & weights array as inputs
 - Loss tells us how wrong the model is.
 
-High loss → model makes bad predictions
-Low loss → model makes good predictions
-Training tries to reduce this loss over time.
+- High loss → model makes bad predictions
+- Low loss → model makes good predictions
+- Training tries to reduce this loss over time.
 
 ```
 m = len(y)
 ```
-In our code y has 10 rows (10,1) → m = 10.
-This is used to compute the average loss across all MSMEs.
-
-It then gets the prediction array for each MSME using
+In our code y has 10 rows (10,1) → m = 10.<br>
+This is used to compute the average loss across all MSMEs.<br>
+It then gets the prediction array for each MSME using<br>
 ```
 predictions = predict(X, weights)
 ```
+<br>
 then it uses the Binary Cross-Entropy formula for loss,which is given by:
+
 ```
 loss = - (1/m) * np.sum(y*np.log(predictions) + (1-y)*np.log(1 - predictions))
 ```
+<br>
 i.e
-<img width="408" height="67" alt="image" src="https://github.com/user-attachments/assets/a0f652ab-2c0e-47ef-92b1-92a0482f6841" />
+<br>
+<img width="408" height="67" alt="image" src="https://github.com/user-attachments/assets/a0f652ab-2c0e-47ef-92b1-92a0482f6841" /><br>
 
 The real meaning of the loss formula:
 1. Case 1 : When y = 1
