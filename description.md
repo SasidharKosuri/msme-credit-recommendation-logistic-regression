@@ -72,16 +72,16 @@ X = (X - X.mean(axis=0)) / X.std(axis=0)
 
 We do normalization because different features have different feature scales
 
-Example:
-credit_score ~ 700 
-existing_loans ~ 0 or 1 
-employees ~ 40 or 120 
-age ~ 1–20
+Example:<br>
+credit_score ~ 700<br>
+existing_loans ~ 0 or 1<br> 
+employees ~ 40 or 120<br> 
+age ~ 1–20<br>
 
 
-Because of this:
-👉 Features with large numbers dominate gradient descent
-👉 Features with small numbers get ignored
+Because of this:<br>
+- Features with large numbers dominate gradient descent
+- Features with small numbers get ignored
 
 Without normalization, the model behaves like:
 ```
