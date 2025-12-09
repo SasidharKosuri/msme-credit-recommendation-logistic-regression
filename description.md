@@ -121,7 +121,7 @@ In other words,the bias allows the model to shift the sigmoid curve<br>
 
  > Here, w₀ is the intercept.<br>
  > It shifts the sigmoid left or right so predictions fit the data.<br>
-<br>
+
  > Without w₀ → model is forced to pass through the origin.
  > With w₀ → model can fit real-world data.
 
